@@ -13,15 +13,12 @@ public interface CustomerRestClient {
 
     @GetMapping("/customers/{id}")
     @CircuitBreaker(name = "customerService", fallbackMethod = "getDefaultCustomer")
-
     Customer findCustomerById (@PathVariable Long id);
 
 
     @GetMapping("/customers")
     @CircuitBreaker(name = "customerService", fallbackMethod = "getAllCustomer")
     List<Customer> allCustomers();
-
-
 
     default Customer getDefaultCustomer(Long id,  Exception exception){
 
