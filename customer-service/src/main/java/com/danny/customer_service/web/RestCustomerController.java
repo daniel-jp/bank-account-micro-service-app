@@ -3,6 +3,7 @@ package com.danny.customer_service.web;
 import com.danny.customer_service.entities.Customer;
 import com.danny.customer_service.repository.CustomerRepository;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class RestCustomerController {
 
     private CustomerRepository customerRepository;
