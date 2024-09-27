@@ -24,7 +24,7 @@ public interface CustomerRestClient {
 
         Customer customer = new Customer();
         customer.setId(id);
-        customer.setFirstname("Not valable");
+        customer.setFirstName("Not valable");
         customer.setLastName("Not valable");
         customer.setEmail("Not valable");
         return  customer;

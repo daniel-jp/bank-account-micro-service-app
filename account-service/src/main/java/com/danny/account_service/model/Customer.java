@@ -7,7 +7,7 @@ import lombok.Setter;
 public class Customer {
 
     private Long id;
-    private String firstname;
+    private String firstName;
     private String lastName;
     private String email;
 }

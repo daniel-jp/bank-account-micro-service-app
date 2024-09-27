@@ -27,13 +27,13 @@ public class CustomerServiceApplication {
 			List<Customer> customerList=List.of(
 
 					Customer.builder()
-							.firstname("Danny")
+							.firstName("Danny")
 							.lastName("Paulino")
 							.email("danny@gmail.com")
 							.build(),
 
 					Customer.builder()
-							.firstname("Benny")
+							.firstName("Benny")
 							.lastName("Liatunga")
 							.email("benny@gmail.com")
 							.build()
