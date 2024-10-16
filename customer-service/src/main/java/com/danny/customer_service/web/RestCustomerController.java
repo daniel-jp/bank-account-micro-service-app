@@ -3,15 +3,13 @@ package com.danny.customer_service.web;
 import com.danny.customer_service.entities.Customer;
 import com.danny.customer_service.repository.CustomerRepository;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@CrossOrigin(origins = "*")
+@RequestMapping("/customers")
 public class RestCustomerController {
 
     private CustomerRepository customerRepository;
@@ -20,12 +18,12 @@ public class RestCustomerController {
         this.customerRepository=customerRepository;
     }
 
-    @GetMapping("/customers")
+    @GetMapping
     public List<Customer> customerList(){
         return customerRepository.findAll();
     }
 
-    @GetMapping("/customers/{id}")
+    @GetMapping("/{id}")
     public Customer getCustomerById(@PathVariable Long id /*HttpServletRequest request*/){
         //System.out.println("Request URL: " + request.getRequestURL());
         return customerRepository.findById(id).get();
