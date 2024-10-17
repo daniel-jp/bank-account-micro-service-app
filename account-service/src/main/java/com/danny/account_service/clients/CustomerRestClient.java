@@ -11,12 +11,12 @@ import java.util.List;
 @FeignClient(name = "CUSTOMER-SERVICE")
 public interface CustomerRestClient {
 
-    @GetMapping("/{id}")
+    @GetMapping("/customers/{id}")
     @CircuitBreaker(name = "customerService", fallbackMethod = "getDefaultCustomer")
     Customer findCustomerById (@PathVariable Long id);
 
 
-    @GetMapping
+    @GetMapping("/accounts")
     @CircuitBreaker(name = "customerService", fallbackMethod = "getAllCustomer")
     List<Customer> allCustomers();
 

@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/customers")
 public class RestCustomerController {
 
     private CustomerRepository customerRepository;
@@ -18,12 +16,12 @@ public class RestCustomerController {
         this.customerRepository=customerRepository;
     }
 
-    @GetMapping
+    @GetMapping("/customers")
     public List<Customer> customerList(){
         return customerRepository.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/customers/{id}")
     public Customer getCustomerById(@PathVariable Long id /*HttpServletRequest request*/){
         //System.out.println("Request URL: " + request.getRequestURL());
         return customerRepository.findById(id).get();

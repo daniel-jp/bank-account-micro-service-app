@@ -7,9 +7,8 @@ import com.danny.account_service.repository.BankAccountRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin(origins = "http://localhost:3000")
+
 @RestController
-@RequestMapping("/accounts")
 public class RestBankAccountController {
     private BankAccountRepository accountRepository;
     private CustomerRestClient customerRestClient;
@@ -19,7 +18,7 @@ public class RestBankAccountController {
         this.customerRestClient = customerRestClient;
     }
 
-    @GetMapping
+    @GetMapping("/accounts")
     public List<BankAccount> bankAccountList(){
 
         List<BankAccount> accountList =  accountRepository.findAll();
@@ -30,7 +29,7 @@ public class RestBankAccountController {
 
         return accountList;
     }
-    @GetMapping("/{id}")
+    @GetMapping("/accounts/{id}")
     public BankAccount bankAccount(@PathVariable String id){
 
          BankAccount account = accountRepository.findById(id).get();
