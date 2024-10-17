@@ -29,7 +29,7 @@ public class RestBankAccountController {
 
         return accountList;
     }
-    @GetMapping("/accounts/{id}")
+    @GetMapping("/accounts")
     public BankAccount bankAccount(@PathVariable String id){
 
          BankAccount account = accountRepository.findById(id).get();
