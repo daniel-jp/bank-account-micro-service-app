@@ -23,7 +23,7 @@ services:
     environment:
       - DISCOVERY_SERVICE_URL=http://sys-ebank-discovery-service:8761/eureka
     healthcheck:
-      test: ["CMD","curl", "-f", "http://localhost:9999/actuator/health"]
+      test: [ "CMD","curl", "-f", "http://localhost:9999/actuator/health" ]
       interval: 10s
       #timeout: 5s
       retries: 4
@@ -44,7 +44,7 @@ services:
       - DISCOVERY_SERVICE_URL=http://sys-ebank-discovery-service:8761/eureka
       - CONFIG_SERVICE_URL=http://sys-ebank-config-service:9999
     healthcheck:
-      test: ["CMD","curl", "-f", "http://localhost:8081/actuator/health"]
+      test: [ "CMD","curl", "-f", "http://localhost:8081/actuator/health" ]
       interval: 10s
       #timeout: 5s
       retries: 4
@@ -82,6 +82,14 @@ services:
     depends_on:
       sys-ebank-config-service:
         condition: service_healthy
+    networks:
+      - ebank-network
+networks:
+  ebank-network:
+    external: true
+
+
+
 
 
 

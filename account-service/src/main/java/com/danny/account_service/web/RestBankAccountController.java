@@ -4,11 +4,15 @@ import com.danny.account_service.clients.CustomerRestClient;
 import com.danny.account_service.entities.BankAccount;
 import com.danny.account_service.model.Customer;
 import com.danny.account_service.repository.BankAccountRepository;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class RestBankAccountController {
     private BankAccountRepository accountRepository;
     private CustomerRestClient customerRestClient;

@@ -34,7 +34,13 @@ public class CustomerServiceApplication {
 
 					Customer.builder()
 							.firstName("Benny")
-							.lastName("Liatunga")
+							.lastName("Liatu")
+							.email("benny@gmail.com")
+							.build(),
+
+					Customer.builder()
+							.firstName("Cochito")
+							.lastName("Armando")
 							.email("benny@gmail.com")
 							.build()
 			);

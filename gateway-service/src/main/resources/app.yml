@@ -1,35 +1,18 @@
 spring:
   cloud:
     gateway:
-      routes:
-        - id : r1
-          uri: http://localhost:8081/
-          predicates:
-            - Path=/customers/**
-        - id : r2
-          uri: http://localhost:8082/
-          predicates:
-            - Path=/accounts/**
+      mvc:
+        routes:
+          - id: r1
+            uri: http://localhost:8081/
+            predicates:
+              - path=/customers/**
+
+          - id: r2
+            uri: http://localhost:8082/
+            predicates:
+              - path=/accounts/**
   application:
     name: gateway-service
 server:
-  port: 8888,
-
-
-#spring:
-#  cloud:
-#    gateway:
-#      routes:  # remove 'mvc', this is not needed for spring cloud gateway
-#        - id: r1
-#          uri: lb://CUSTOMER-SERVICE  # no trailing slash
-#          predicates:
-#            - Path=/CUSTOMER-SERVICE/** # 'Path' should be capitalized
-
-#        - id: r2
-#          uri: lb:/ACCOUNT-SERVICE/**  # no trailing slash
-#          predicates:
-#            - Path=/ACCOUNT-SERVICE/**  # 'Path' should be capitalized
-#  application:
-#    name: gateway-service
-#server:
-#  port: 8888
+  port: 8888

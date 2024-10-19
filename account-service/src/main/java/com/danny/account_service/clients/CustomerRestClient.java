@@ -16,7 +16,7 @@ public interface CustomerRestClient {
     Customer findCustomerById (@PathVariable Long id);
 
 
-    @GetMapping("/accounts")
+    @GetMapping("/customers")
     @CircuitBreaker(name = "customerService", fallbackMethod = "getAllCustomer")
     List<Customer> allCustomers();
 
