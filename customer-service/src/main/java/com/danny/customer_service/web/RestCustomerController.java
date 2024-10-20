@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*")
+//@CrossOrigin("http://localhost:3000")
 public class RestCustomerController {
 
     private CustomerRepository customerRepository;

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "*")
+//@CrossOrigin("http://localhost:3000")
 public class RestBankAccountController {
     private BankAccountRepository accountRepository;
     private CustomerRestClient customerRestClient;

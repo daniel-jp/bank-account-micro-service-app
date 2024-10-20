@@ -82,11 +82,7 @@ services:
     depends_on:
       sys-ebank-config-service:
         condition: service_healthy
-    networks:
-      - ebank-network
-networks:
-  ebank-network:
-    external: true
+
 
 
 
