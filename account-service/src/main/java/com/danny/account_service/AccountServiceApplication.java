@@ -43,7 +43,7 @@ public class AccountServiceApplication {
 						.currency("MAD")
 						.balance(Math.random()*80000)
 						.createAt(LocalDate.now())
-						.type(AccountType.CURRENT_ACCOUNT)
+						.type(AccountType.SAVING_ACCOUNT)
 						.customerId(customer.getId())
 						.build();
 

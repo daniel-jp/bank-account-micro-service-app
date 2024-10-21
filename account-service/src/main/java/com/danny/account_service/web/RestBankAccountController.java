@@ -4,15 +4,13 @@ import com.danny.account_service.clients.CustomerRestClient;
 import com.danny.account_service.entities.BankAccount;
 import com.danny.account_service.model.Customer;
 import com.danny.account_service.repository.BankAccountRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 //@CrossOrigin("http://localhost:3000")
+@RequestMapping("/accounts")
 public class RestBankAccountController {
     private BankAccountRepository accountRepository;
     private CustomerRestClient customerRestClient;
@@ -22,18 +20,15 @@ public class RestBankAccountController {
         this.customerRestClient = customerRestClient;
     }
 
-    @GetMapping("/accounts")
+    @GetMapping
     public List<BankAccount> bankAccountList(){
-
         List<BankAccount> accountList =  accountRepository.findAll();
-
         accountList.forEach(acc->{
             acc.setCustomer(customerRestClient.findCustomerById(acc.getCustomerId()));
         });
-
         return accountList;
     }
-    @GetMapping("/accounts/{id}")
+    @GetMapping("/{id}")
     public BankAccount bankAccount(@PathVariable String id){
 
          BankAccount account = accountRepository.findById(id).get();
