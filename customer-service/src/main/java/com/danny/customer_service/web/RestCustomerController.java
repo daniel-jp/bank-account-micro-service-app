@@ -3,6 +3,8 @@ package com.danny.customer_service.web;
 import com.danny.customer_service.entities.Customer;
 import com.danny.customer_service.repository.CustomerRepository;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +21,10 @@ public class RestCustomerController {
     }
 
     @PostMapping
-    public Customer createCustomer(@RequestBody Customer customer) {
-        return customerRepository.save(customer);
+    public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
+        System.out.println("Received POST request to create customer: " + customer);
+        Customer savedCustomer = customerRepository.save(customer);
+        return new ResponseEntity<>(savedCustomer, HttpStatus.CREATED);
     }
 
     @GetMapping
